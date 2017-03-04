@@ -107,7 +107,7 @@ export default class Contacts extends React.Component {
                 value={this.state.newLast} />
             </div>
             <div className="col-md-3 contacts-item-email">
-              <input type="email"
+              <input type="text"
                 required
                 placeholder="email"
                 name="newEmail"
