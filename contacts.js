@@ -91,16 +91,36 @@ export default class Contacts extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="row contacts-item-new">
             <div className="col-md-3 contacts-item-first">
-              <input type="text" name="newFirst" onChange={this.handleInputChange} value={this.state.newFirst} />
+              <input type="text"
+                required
+                placeholder="first name"
+                name="newFirst"
+                onChange={this.handleInputChange}
+                value={this.state.newFirst} />
             </div>
             <div className="col-md-3 contacts-item-last">
-              <input type="text" name="newLast" onChange={this.handleInputChange} value={this.state.newLast} />
+              <input type="text"
+                required
+                placeholder="last name"
+                name="newLast"
+                onChange={this.handleInputChange}
+                value={this.state.newLast} />
             </div>
             <div className="col-md-3 contacts-item-email">
-              <input type="text" name="newEmail" onChange={this.handleInputChange} required value={this.state.newEmail} />
+              <input type="email"
+                required
+                placeholder="email"
+                name="newEmail"
+                onChange={this.handleInputChange}
+                value={this.state.newEmail} />
             </div>
             <div className="col-md-2 contacts-item-country">
-              <input type="text" name="newCountry" onChange={this.handleInputChange} value={this.state.newCountry} />
+              <input type="text"
+                required
+                placeholder="country"
+                name="newCountry"
+                onChange={this.handleInputChange}
+                value={this.state.newCountry} />
             </div>
             <div className="col-md-1 text-right">
               <button type="submit" className="btn btn-create">Create</button>
