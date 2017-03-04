@@ -46,6 +46,15 @@
   outline: 0;
 }
 
+.contacts-item-new input::placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+.contacts-item-new input::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+
 .controls {
   display: inline-block;
 }
