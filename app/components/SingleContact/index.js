@@ -1,8 +1,10 @@
 import React from 'react';
 
-import SuccessIcon from 'babel-loader!svg-react-loader!./assets/check.svg?name=SuccessIcon';
-import FailIcon from 'babel-loader!svg-react-loader!./assets/times.svg?name=FailIcon';
-import DeleteIcon from 'babel-loader!svg-react-loader!./assets/trash-o.svg?name=TrashIcon';
+import SuccessIcon from 'babel-loader!svg-react-loader!../../../assets/check.svg?name=SuccessIcon';
+import FailIcon from 'babel-loader!svg-react-loader!../../../assets/times.svg?name=FailIcon';
+import DeleteIcon from 'babel-loader!svg-react-loader!../../../assets/trash-o.svg?name=TrashIcon';
+
+import './SingleContact.css';
 
 export default class SingleContact extends React.Component {
   constructor(props) {
@@ -119,29 +121,29 @@ export default class SingleContact extends React.Component {
 
   render() {
     return (
-      <div className="row contacts-item" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+      <div className="row SingleContact_item" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
         {
           !this.state.deleted &&
           <form onSubmit={this.handleSubmit}>
-            <div className="col-md-3 contacts-item-first">
+            <div className="col-md-3 SingleContact_item-first">
               <input type="text" name="first"
                 onChange={this.handleInputChange}
                 onKeyDown={this.handleKeyPress}
                 value={this.state.first} />
             </div>
-            <div className="col-md-3 contacts-item-last">
+            <div className="col-md-3 SingleContact_item-last">
               <input type="text" name="last"
                 onChange={this.handleInputChange}
                 onKeyDown={this.handleKeyPress}
                 value={this.state.last} />
             </div>
-            <div className="col-md-3 contacts-item-email">
+            <div className="col-md-3 SingleContact_item-email">
               <input type="text" name="email"
                 onChange={this.handleInputChange}
                 onKeyDown={this.handleKeyPress}
                 value={this.state.email} />
             </div>
-            <div className="col-md-2 contacts-item-country">
+            <div className="col-md-2 SingleContact_item-country">
               <input type="text" name="country"
                 onChange={this.handleInputChange}
                 onKeyDown={this.handleKeyPress}
@@ -150,7 +152,7 @@ export default class SingleContact extends React.Component {
             <div className="col-md-1 text-right">
               {
                 this.state.possibleUpdate &&
-                <div className="controls">
+                <div className="SingleContact_controls">
                   <button type="submit" className="btn btn-transparent"><SuccessIcon /></button>
                   <button type="button" onClick={this.cancelUpdate} className="btn btn-transparent"><FailIcon /></button>
                 </div>

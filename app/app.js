@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './main.css';
+import './global.css';
 
-import Contacts from './contacts';
+import Contacts from './components/Contacts';
 
 const people = [
   {

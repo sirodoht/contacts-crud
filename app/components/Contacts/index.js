@@ -1,6 +1,8 @@
 import React from 'react';
 
-import SingleContact from './contact';
+import SingleContact from '../SingleContact';
+
+import './Contacts.css';
 
 export default class Contacts extends React.Component {
   constructor(props) {
@@ -89,8 +91,8 @@ export default class Contacts extends React.Component {
     return (
       <div className="container-fluid">
         <form onSubmit={this.handleSubmit}>
-          <div className="row contacts-item-new">
-            <div className="col-md-3 contacts-item-first">
+          <div className="row Contacts_item-new">
+            <div className="col-md-3 Contacts_item-first">
               <input type="text"
                 required
                 placeholder="first name"
@@ -98,7 +100,7 @@ export default class Contacts extends React.Component {
                 onChange={this.handleInputChange}
                 value={this.state.newFirst} />
             </div>
-            <div className="col-md-3 contacts-item-last">
+            <div className="col-md-3 Contacts_item-last">
               <input type="text"
                 required
                 placeholder="last name"
@@ -106,7 +108,7 @@ export default class Contacts extends React.Component {
                 onChange={this.handleInputChange}
                 value={this.state.newLast} />
             </div>
-            <div className="col-md-3 contacts-item-email">
+            <div className="col-md-3 Contacts_item-email">
               <input type="text"
                 required
                 placeholder="email"
@@ -114,7 +116,7 @@ export default class Contacts extends React.Component {
                 onChange={this.handleInputChange}
                 value={this.state.newEmail} />
             </div>
-            <div className="col-md-2 contacts-item-country">
+            <div className="col-md-2 Contacts_item-country">
               <input type="text"
                 required
                 placeholder="country"
