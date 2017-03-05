@@ -3,6 +3,7 @@ import React from 'react';
 import SuccessIcon from 'babel-loader!svg-react-loader!../../../assets/check.svg?name=SuccessIcon';
 import FailIcon from 'babel-loader!svg-react-loader!../../../assets/times.svg?name=FailIcon';
 import DeleteIcon from 'babel-loader!svg-react-loader!../../../assets/trash-o.svg?name=TrashIcon';
+import countriesList from '../../util/countries';
 
 import './SingleContact.css';
 
@@ -144,10 +145,13 @@ export default class SingleContact extends React.Component {
                 value={this.state.email} />
             </div>
             <div className="col-md-2 SingleContact_item-country">
-              <input type="text" name="country"
+              <select name="country"
+                required
+                value={this.state.country}
                 onChange={this.handleInputChange}
-                onKeyDown={this.handleKeyPress}
-                value={this.state.country} />
+                className="SingleContacts_select">
+                {countriesList()}
+              </select>
             </div>
             <div className="col-md-1 text-right">
               {
