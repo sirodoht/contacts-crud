@@ -53,24 +53,33 @@ export default class SingleContact extends React.Component {
     this.setState(newState);
   }
 
+  sanitizeUpdatedUser() {
+    this.setState((prevState) => ({
+      first: prevState.first.trim(),
+      last: prevState.last.trim(),
+      email: prevState.email.trim(),
+    }));
+  }
+
   isUpdatedUserValid() {
     let valid = true;
 
     // length validation
-    const updatedPersonStrings = [
-      this.state.first,
-      this.state.last,
-      this.state.email,
-    ];
-    updatedPersonStrings.forEach((string) => {
-      if (string.length > 50) {
+    const updatedPersonStrings = {
+      'first name': this.state.first,
+      'last name': this.state.last,
+      'email': this.state.email,
+    };
+    Object.keys(updatedPersonStrings).forEach((name) => {
+      if (updatedPersonStrings[name].length > 50) {
+        this.props.notif.show(`Input for ${name} is too long.`, 'error');
         valid = false;
       }
     });
 
     // email validation
     if (!isEmailValid(this.state.email)) {
-      this.notif.show(`Email ${this.state.email} is invalid.`, 'error');
+      this.props.notif.show(`Email ${this.state.email} is invalid.`, 'error');
       valid = false;
     }
 
@@ -80,6 +89,7 @@ export default class SingleContact extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    this.sanitizeUpdatedUser();
     if (!this.isUpdatedUserValid()) {
       return;
     }

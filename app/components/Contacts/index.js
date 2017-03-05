@@ -52,17 +52,26 @@ export default class Contacts extends React.Component {
     });
   }
 
+  sanitizeNewUser() {
+    this.setState((prevState) => ({
+      newFirst: prevState.newFirst.trim(),
+      newLast: prevState.newLast.trim(),
+      newEmail: prevState.newEmail.trim(),
+    }));
+  }
+
   isNewUserValid() {
     let valid = true;
 
     // length validation
-    const newPersonStrings = [
-      this.state.newFirst,
-      this.state.newLast,
-      this.state.newEmail,
-    ];
-    newPersonStrings.forEach((string) => {
-      if (string.length > 50) {
+    const newPersonStrings = {
+      'first name': this.state.newFirst,
+      'last name': this.state.newLast,
+      'email': this.state.newEmail,
+    };
+    Object.keys(newPersonStrings).forEach((name) => {
+      if (newPersonStrings[name].length > 50) {
+        this.notif.show(`Input for ${name} is too long.`, 'error');
         valid = false;
       }
     });
@@ -79,6 +88,7 @@ export default class Contacts extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    this.sanitizeNewUser();
     if (!this.isNewUserValid()) {
       return;
     }
