@@ -127,7 +127,7 @@ export default class Contacts extends React.Component {
 
   updateLocalStorage(newPerson) {
     localStorage.setItem(newPerson.email, JSON.stringify(newPerson));
-    this.notif.show(`Contact ${this.state.newEmail} saved`);
+    this.notif.show(`Contact ${newPerson.email} saved`);
   }
 
   render() {

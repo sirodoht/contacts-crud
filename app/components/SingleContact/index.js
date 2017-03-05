@@ -105,7 +105,7 @@ export default class SingleContact extends React.Component {
       email: this.state.email,
       country: this.state.country,
     };
-    localStorage.setItem(this.state.email, JSON.stringify(updatedPerson));
+    this.updateLocalStorage(updatedPerson);
 
     this.setState({
       oldPerson: null,
@@ -113,6 +113,12 @@ export default class SingleContact extends React.Component {
       hover: false,
     });
   }
+
+  updateLocalStorage(updatedPerson) {
+    localStorage.setItem(updatedPerson.email, JSON.stringify(updatedPerson));
+    this.props.notif.show(`Contact ${updatedPerson.email} saved`);
+  }
+
 
   cancelUpdate() {
     if (this.state.oldPerson) {
