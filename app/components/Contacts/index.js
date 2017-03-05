@@ -1,5 +1,6 @@
 import React from 'react';
 
+import countriesList from '../../util/countries';
 import SingleContact from '../SingleContact';
 
 import './Contacts.css';
@@ -117,12 +118,13 @@ export default class Contacts extends React.Component {
                 value={this.state.newEmail} />
             </div>
             <div className="col-md-2 Contacts_item-country">
-              <input type="text"
+              <select name="newCountry"
                 required
-                placeholder="country"
-                name="newCountry"
+                value={this.state.newCountry}
                 onChange={this.handleInputChange}
-                value={this.state.newCountry} />
+                className="Contacts_select">
+                {countriesList()}
+              </select>
             </div>
             <div className="col-md-1 text-right">
               <button type="submit" className="btn btn-create">Create</button>
