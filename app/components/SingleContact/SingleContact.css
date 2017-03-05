@@ -38,9 +38,18 @@
   height: 34px;
   border: 1px solid #fff;
   background-color: #fda;
+  outline: 0;
 }
 
 .SingleContact_item:nth-child(even) .SingleContacts_select {
   border: 1px solid #fda;
   background-color: #fff;
+}
+
+.SingleContacts_select:focus {
+  border: 2px solid #fff;
+}
+
+.SingleContact_item:nth-child(even) .SingleContacts_select:focus {
+  border: 2px solid #fda;
 }
