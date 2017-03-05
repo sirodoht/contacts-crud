@@ -1,7 +1,9 @@
 import React from 'react';
 
-import countriesList from '../../util/countries';
 import SingleContact from '../SingleContact';
+import Notification from '../Notification';
+import countriesList from '../../util/country-list-select';
+import isEmailValid from '../../util/is-email-valid';
 
 import './Contacts.css';
 
@@ -52,6 +54,12 @@ export default class Contacts extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
+    if (!isEmailValid(this.state.newEmail)) {
+      this.notif.show(`Email ${this.state.newEmail} is invalid.`, 'error');
+      return;
+    }
+
     const newPerson = {
       first: this.state.newFirst,
       last: this.state.newLast,
@@ -86,11 +94,13 @@ export default class Contacts extends React.Component {
 
   updateLocalStorage(newPerson) {
     localStorage.setItem(newPerson.email, JSON.stringify(newPerson));
+    this.notif.show(`Contact ${this.state.newEmail} saved`);
   }
 
   render() {
     return (
       <div className="container-fluid">
+        <Notification ref={(notifInstance) => { this.notif = notifInstance; }} />
         <form onSubmit={this.handleSubmit}>
           <div className="row Contacts_item-new">
             <div className="col-md-3 Contacts_item-first">
@@ -132,7 +142,10 @@ export default class Contacts extends React.Component {
           </div>
         </form>
         {this.state.people.map((person) =>
-          <SingleContact key={person.email} person={person} onDelete={this.handleDelete} />
+          <SingleContact key={person.email}
+            person={person}
+            notif={this.notif}
+            onDelete={this.handleDelete} />
         )}
       </div>
     );
