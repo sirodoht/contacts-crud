@@ -200,13 +200,13 @@ export default class SingleContact extends React.Component {
               {
                 this.state.possibleUpdate &&
                 <div className="SingleContact_controls">
-                  <button type="submit" className="btn btn-transparent"><SuccessIcon /></button>
-                  <button type="button" onClick={this.cancelUpdate} className="btn btn-transparent"><FailIcon /></button>
+                  <button type="submit" className="btn btn-transparent-success"><SuccessIcon /></button>
+                  <button type="button" onClick={this.cancelUpdate} className="btn btn-transparent-failure"><FailIcon /></button>
                 </div>
               }
               {
                 this.state.hover &&
-                <button type="button" onClick={this.delete} className="btn btn-transparent"><DeleteIcon /></button>
+                <button type="button" onClick={this.delete} className="btn btn-transparent-failure"><DeleteIcon /></button>
               }
             </div>
           </form>

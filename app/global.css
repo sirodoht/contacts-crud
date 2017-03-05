@@ -1,6 +1,41 @@
-.btn-transparent {
+.btn-transparent-failure {
   background-color: transparent;
   padding: 6px 8px;
+}
+
+.btn-transparent-failure:focus {
+  color: #fff;
+  background-color: #D64541;
+  box-shadow: none;
+}
+
+.btn-transparent-failure svg {
+  position: relative;
+  top: 3px;
+}
+
+.btn-transparent-failure:focus svg {
+  fill: white;
+}
+
+.btn-transparent-success {
+  background-color: transparent;
+  padding: 6px 8px;
+}
+
+.btn-transparent-success:focus {
+  color: #fff;
+  background-color: #26C281;
+  box-shadow: none;
+}
+
+.btn-transparent-success svg {
+  position: relative;
+  top: 3px;
+}
+
+.btn-transparent-success:focus svg {
+  fill: white;
 }
 
 .btn-create {
