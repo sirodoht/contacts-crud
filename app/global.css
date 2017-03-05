@@ -1,0 +1,15 @@
+.btn-transparent {
+  background-color: transparent;
+  padding: 6px 8px;
+}
+
+.btn-create {
+  background-color: #ffb444;
+  border: 2px solid #fff;
+  font-weight: 500;
+}
+
+.btn-create:hover {
+  background-color: #fff;
+  color: #ffb444;
+}

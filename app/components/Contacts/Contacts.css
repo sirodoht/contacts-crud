@@ -1,0 +1,25 @@
+.Contacts_item-new {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #ffb444;
+}
+
+.Contacts_item-new input {
+  width: 100%;
+  background-color: #ffb444;
+  border: 2px solid #fff;
+  padding-left: 5px;
+  outline: 0;
+}
+
+.Contacts_item-new input::placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+.Contacts_item-new input::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
