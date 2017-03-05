@@ -52,11 +52,34 @@ export default class Contacts extends React.Component {
     });
   }
 
+  isNewUserValid() {
+    let valid = true;
+
+    // length validation
+    const newPersonStrings = [
+      this.state.newFirst,
+      this.state.newLast,
+      this.state.newEmail,
+    ];
+    newPersonStrings.forEach((string) => {
+      if (string.length > 50) {
+        valid = false;
+      }
+    });
+
+    // email validation
+    if (!isEmailValid(this.state.newEmail)) {
+      this.notif.show(`Email ${this.state.newEmail} is invalid.`, 'error');
+      valid = false;
+    }
+
+    return valid;
+  }
+
   handleSubmit(event) {
     event.preventDefault();
 
-    if (!isEmailValid(this.state.newEmail)) {
-      this.notif.show(`Email ${this.state.newEmail} is invalid.`, 'error');
+    if (!this.isNewUserValid()) {
       return;
     }
 

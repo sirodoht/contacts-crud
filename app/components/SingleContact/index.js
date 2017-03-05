@@ -53,11 +53,34 @@ export default class SingleContact extends React.Component {
     this.setState(newState);
   }
 
+  isUpdatedUserValid() {
+    let valid = true;
+
+    // length validation
+    const updatedPersonStrings = [
+      this.state.first,
+      this.state.last,
+      this.state.email,
+    ];
+    updatedPersonStrings.forEach((string) => {
+      if (string.length > 50) {
+        valid = false;
+      }
+    });
+
+    // email validation
+    if (!isEmailValid(this.state.email)) {
+      this.notif.show(`Email ${this.state.email} is invalid.`, 'error');
+      valid = false;
+    }
+
+    return valid;
+  }
+
   handleSubmit(event) {
     event.preventDefault();
 
-    if (!isEmailValid(this.state.email)) {
-      this.props.notif.show(`Email ${this.state.email} is invalid.`, 'error');
+    if (!this.isUpdatedUserValid()) {
       return;
     }
 
