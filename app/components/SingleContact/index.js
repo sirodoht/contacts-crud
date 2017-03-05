@@ -135,7 +135,10 @@ export default class SingleContact extends React.Component {
   }
 
   delete() {
-    this.props.onDelete(this.state.email);
+    if (window.confirm(`Confirm deleting ${this.state.email}?`)) {
+      this.props.onDelete(this.state.email);
+      this.props.notif.show(`User ${this.state.email} deleted`);
+    }
   }
 
   handleKeyPress(event) {
