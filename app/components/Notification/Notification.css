@@ -1,0 +1,12 @@
+.Notification {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 20px;
+  z-index: 1;
+  background: #26C281;
+  border-radius: 1px;
+  color: #fff;
+  font-size: 20px;
+}
