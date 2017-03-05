@@ -3,7 +3,8 @@ import React from 'react';
 import SuccessIcon from 'babel-loader!svg-react-loader!../../../assets/check.svg?name=SuccessIcon';
 import FailIcon from 'babel-loader!svg-react-loader!../../../assets/times.svg?name=FailIcon';
 import DeleteIcon from 'babel-loader!svg-react-loader!../../../assets/trash-o.svg?name=TrashIcon';
-import countriesList from '../../util/countries';
+import countryListSelect from '../../util/country-list-select';
+import isEmailValid from '../../util/is-email-valid';
 
 import './SingleContact.css';
 
@@ -55,6 +56,12 @@ export default class SingleContact extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    if (!isEmailValid(this.state.email)) {
+      this.props.notif.show(`Email ${this.state.email} is invalid.`, 'error');
+      return;
+    }
+
+    // in case of email change, delete the record
     if (this.state.email !== this.state.oldPerson.email) {
       localStorage.removeItem(this.state.oldPerson.email);
     }
@@ -150,7 +157,7 @@ export default class SingleContact extends React.Component {
                 value={this.state.country}
                 onChange={this.handleInputChange}
                 className="SingleContacts_select">
-                {countriesList()}
+                {countryListSelect()}
               </select>
             </div>
             <div className="col-md-1 text-right">
@@ -176,4 +183,5 @@ export default class SingleContact extends React.Component {
 SingleContact.propTypes = {
   person: React.PropTypes.object,
   onDelete: React.PropTypes.func,
+  notif: React.PropTypes.object,
 };
