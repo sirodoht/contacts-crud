@@ -7,6 +7,9 @@ import isEmailValid from '../../util/is-email-valid';
 
 import './Contacts.css';
 
+/**
+ * Contacts component.
+ */
 export default class Contacts extends React.Component {
   constructor(props) {
     super(props);
@@ -23,10 +26,16 @@ export default class Contacts extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
+  /**
+   * Called by React when component gets mounted.
+   */
   componentDidMount() {
     this.populateFromLocalStorage();
   }
 
+  /**
+   * Populate keys and values from our persistence layer, window.localStorage.
+   */
   populateFromLocalStorage() {
     Object.keys(localStorage).forEach((key) => {
       const value = localStorage[key];
@@ -42,6 +51,10 @@ export default class Contacts extends React.Component {
     });
   }
 
+  /**
+   * Handle change on input fields.
+   * @param {Object} event From the DOM.
+   */
   handleInputChange(event) {
     const target = event.target;
     const value = target.value;
@@ -52,6 +65,9 @@ export default class Contacts extends React.Component {
     });
   }
 
+  /**
+   * Basic user fields sanitization.
+   */
   sanitizeNewUser() {
     this.setState((prevState) => ({
       newFirst: prevState.newFirst.trim(),
@@ -60,6 +76,9 @@ export default class Contacts extends React.Component {
     }));
   }
 
+  /**
+   * Check if new user fields are valid.
+   */
   isNewUserValid() {
     let valid = true;
 
@@ -85,6 +104,10 @@ export default class Contacts extends React.Component {
     return valid;
   }
 
+  /**
+   * Handle form submit, on new user creation.
+   * @param {Object} event From the DOM.
+   */
   handleSubmit(event) {
     event.preventDefault();
 
@@ -109,6 +132,10 @@ export default class Contacts extends React.Component {
     this.updateLocalStorage(newPerson);
   }
 
+  /**
+   * Delete user.
+   * @param {string} email The email of the user to be deleted.
+   */
   handleDelete(email) {
     localStorage.removeItem(email);
 
@@ -125,11 +152,18 @@ export default class Contacts extends React.Component {
     }
   }
 
+  /**
+   * Add new person on the localStorage.
+   * @param {Object} newPerson The new person object to be saved or be overwriten.
+   */
   updateLocalStorage(newPerson) {
     localStorage.setItem(newPerson.email, JSON.stringify(newPerson));
     this.notif.show(`Contact ${newPerson.email} saved`);
   }
 
+  /**
+   * Render Contacts component.
+   */
   render() {
     return (
       <div className="container-fluid">

@@ -3,6 +3,9 @@ import cloneDeep from 'lodash.clonedeep';
 
 import './Notification.css';
 
+/**
+ * Notification component.
+ */
 export default class Notification extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +21,11 @@ export default class Notification extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  /**
+   * Show the notification div.
+   * @param {string} message The text message to be as notification content.
+   * @param {string=} type The type of the message. Default value is success.
+   */
   show(message, type) {
     let style = {
       display: 'inline-block',
@@ -41,6 +49,9 @@ export default class Notification extends React.Component {
     }, 1500);
   }
 
+  /**
+   * Handle the entering of mouse on the notification div.
+   */
   handleMouseEnter() {
     this.setState((prevState) => {
       const state = cloneDeep(prevState);
@@ -49,6 +60,9 @@ export default class Notification extends React.Component {
     });
   }
 
+  /**
+   * Handle the event when the mouse leaves the notification div.
+   */
   handleMouseLeave() {
     this.setState((prevState) => {
       const state = cloneDeep(prevState);
@@ -57,6 +71,9 @@ export default class Notification extends React.Component {
     });
   }
 
+  /**
+   * Handle click on the notification div.
+   */
   handleClick() {
     this.setState({
       style: {
@@ -65,6 +82,9 @@ export default class Notification extends React.Component {
     });
   }
 
+  /**
+   * Render Notification component.
+   */
   render() {
     return (
       <div className="Notification"
