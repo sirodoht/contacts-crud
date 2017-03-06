@@ -175,25 +175,25 @@ export default class SingleContact extends React.Component {
         {
           !this.state.deleted &&
           <form onSubmit={this.handleSubmit}>
-            <div className="col-md-3 SingleContact_item-first">
+            <div className="col-lg-3 col-md-2 col-sm-5 SingleContact_item-first">
               <input type="text" name="first"
                 onChange={this.handleInputChange}
                 onKeyDown={this.handleKeyPress}
                 value={this.state.first} />
             </div>
-            <div className="col-md-3 SingleContact_item-last">
+            <div className="col-lg-3 col-md-3 col-sm-5 SingleContact_item-last">
               <input type="text" name="last"
                 onChange={this.handleInputChange}
                 onKeyDown={this.handleKeyPress}
                 value={this.state.last} />
             </div>
-            <div className="col-md-3 SingleContact_item-email">
+            <div className="col-lg-3 col-md-3 col-sm-5 SingleContact_item-email">
               <input type="text" name="email"
                 onChange={this.handleInputChange}
                 onKeyDown={this.handleKeyPress}
                 value={this.state.email} />
             </div>
-            <div className="col-md-2 SingleContact_item-country">
+            <div className="col-lg-2 col-md-2 col-sm-5 SingleContact_item-country">
               <select name="country"
                 required
                 value={this.state.country}
@@ -202,7 +202,7 @@ export default class SingleContact extends React.Component {
                 {countryListSelect()}
               </select>
             </div>
-            <div className="col-md-1 text-right">
+            <div className="col-lg-1 col-md-2 col-sm-2 SingleContact_item-controls text-right">
               {
                 this.state.possibleUpdate &&
                 <div className="SingleContact_controls">

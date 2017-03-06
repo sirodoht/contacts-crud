@@ -136,7 +136,7 @@ export default class Contacts extends React.Component {
         <Notification ref={(notifInstance) => { this.notif = notifInstance; }} />
         <form onSubmit={this.handleSubmit}>
           <div className="row Contacts_item-new">
-            <div className="col-md-3 Contacts_item-first">
+            <div className="col-lg-3 col-md-2 col-sm-5 Contacts_item-new-first">
               <input type="text"
                 required
                 placeholder="first name"
@@ -144,7 +144,7 @@ export default class Contacts extends React.Component {
                 onChange={this.handleInputChange}
                 value={this.state.newFirst} />
             </div>
-            <div className="col-md-3 Contacts_item-last">
+            <div className="col-lg-3 col-md-3 col-sm-5 Contacts_item-new-last">
               <input type="text"
                 required
                 placeholder="last name"
@@ -152,7 +152,7 @@ export default class Contacts extends React.Component {
                 onChange={this.handleInputChange}
                 value={this.state.newLast} />
             </div>
-            <div className="col-md-3 Contacts_item-email">
+            <div className="col-lg-3 col-md-3 col-sm-4 Contacts_item-new-email">
               <input type="text"
                 required
                 placeholder="email"
@@ -160,7 +160,7 @@ export default class Contacts extends React.Component {
                 onChange={this.handleInputChange}
                 value={this.state.newEmail} />
             </div>
-            <div className="col-md-2 Contacts_item-country">
+            <div className="col-lg-2 col-md-2 col-sm-4 Contacts_item-new-country">
               <select name="newCountry"
                 required
                 value={this.state.newCountry}
@@ -169,7 +169,7 @@ export default class Contacts extends React.Component {
                 {countriesList()}
               </select>
             </div>
-            <div className="col-md-1 text-right">
+            <div className="col-lg-1 col-md-2 col-sm-4 Contacts_item-new-button text-right">
               <button type="submit" className="btn btn-create">Create</button>
             </div>
           </div>

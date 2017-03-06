@@ -38,6 +38,12 @@
   fill: white;
 }
 
+@media (max-width: 992px) {
+  .btn-transparent-success {
+    padding: 6px 2px;
+  }
+}
+
 .btn-create {
   background-color: #ffb444;
   border: 2px solid #fff;

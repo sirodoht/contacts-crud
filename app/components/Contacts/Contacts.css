@@ -7,6 +7,12 @@
   background-color: #ffb444;
 }
 
+@media (max-width: 768px) {
+  .Contacts_item-new {
+    padding-left: 0;
+  }
+}
+
 .Contacts_item-new input {
   width: 100%;
   background-color: #ffb444;
@@ -23,6 +29,23 @@
 .Contacts_item-new input::-webkit-input-placeholder {
   color: #fff;
   opacity: 0.5;
+}
+
+@media (max-width: 992px) {
+  .Contacts_item-new-email,
+  .Contacts_item-new-country,
+  .Contacts_item-new-button {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Contacts_item-new-email,
+  .Contacts_item-new-country,
+  .Contacts_item-new-button,
+  .Contacts_item-new-last {
+    margin-top: 20px;
+  }
 }
 
 .Contacts_select {
