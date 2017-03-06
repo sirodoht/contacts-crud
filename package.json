@@ -2,12 +2,20 @@
   "name": "contacts-crud",
   "version": "1.0.0",
   "description": "Contacts CRUD",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack -p",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirodoht/contacts-crud.git"
   },
   "author": "sirodoht",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sirodoht/contacts-crud/issues"
+  },
+  "homepage": "https://github.com/sirodoht/contacts-crud#readme",
   "devDependencies": {
     "babel-core": "6.23.1",
     "babel-loader": "6.3.2",
