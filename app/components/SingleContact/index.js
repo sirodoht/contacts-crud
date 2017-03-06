@@ -106,6 +106,10 @@ export default class SingleContact extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    if (!window.confirm(`Confirm saving ${this.state.email}?`)) {
+      return;
+    }
+
     this.sanitizeUpdatedUser();
     if (!this.isUpdatedUserValid()) {
       return;
